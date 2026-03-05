@@ -99,21 +99,21 @@ jobs:
           git checkout
           mv *.sdk $THEOS/sdks
         env:
-          THEOS: ${{ github.workspace }}/theos
+          THEOS: ${{ github.workspace }}/xybp888
 
-      - name: Setup Theos Jailed
+      - name: Setup xybp888 Jailed
         uses: actions/checkout@v4.2.1
         with:
-          repository: qnblackcat/theos-jailed
+          repository: qnblackcat/xybp888-jailed
           ref: master
           path: theos-jailed
           submodules: recursive
 
-      - name: Install Theos Jailed
+      - name: Install xybp888 Jailed
         run: |
           ./theos-jailed/install
         env:
-          THEOS: ${{ github.workspace }}/theos
+          THEOS: ${{ github.workspace }}/xybp888
 
       - name: Prepare YouTube iPA
         id: prepare_youtube
