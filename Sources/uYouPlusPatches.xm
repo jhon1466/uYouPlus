@@ -214,12 +214,11 @@ static void refreshUYouAppearance() {
         [imageView setImage:icon];
 
         // Resize image to 30x30
-        // https://stackoverflow.com/a/2658801/19227228
         CGSize size = CGSizeMake(30, 30);
-        UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
-        [icon drawInRect:CGRectMake(0, 0, size.width, size.height)];
-        UIImage *resizedImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+        UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:size];
+        UIImage *resizedImage = [renderer imageWithActions:^(UIGraphicsImageRendererContext *ctx) {
+            [icon drawInRect:CGRectMake(0, 0, size.width, size.height)];
+        }];
 
         [imageView setImage:resizedImage];
     }

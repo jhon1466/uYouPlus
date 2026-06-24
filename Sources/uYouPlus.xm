@@ -411,8 +411,7 @@ YTMainAppControlsOverlayView *controlsOverlayView;
 - (BOOL)respectDeviceCaptionSetting { return NO; }
 // Swipe right to dismiss the right panel in fullscreen mode
 - (BOOL)isLandscapeEngagementPanelSwipeRightToDismissEnabled { return YES; }
-// Don't use new YT settings layout (Cairo Settings)
-- (BOOL)mainAppCoreClientEnableCairoSettings { return NO; }
+// Cairo Settings is required on YouTube 21+ / iOS 26+; don't override it
 %end
 
 # pragma mark - Constructor
