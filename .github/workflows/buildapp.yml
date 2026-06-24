@@ -94,12 +94,12 @@ jobs:
       - name: Download iOS 26.2 SDK
         if: steps.SDK.outputs.cache-hit != 'true'
         run: |
-          git clone -n --depth=1 --filter=tree:0 https://github.com/xybp888/iOS-SDKs.git && cd sdks
+          git clone -n --depth=1 --filter=tree:0 https://github.com/xybp888/iOS-SDKs.git && cd iOS-SDKs
           git sparse-checkout set --no-cone iPhoneOS26.2.sdk
           git checkout
           mv *.sdk $THEOS/sdks
         env:
-          THEOS: ${{ github.workspace }}/xybp888
+          THEOS: ${{ github.workspace }}/theos
 
       - name: Setup xybp888 Jailed
         uses: actions/checkout@v4.2.1
