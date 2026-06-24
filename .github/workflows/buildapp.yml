@@ -101,19 +101,19 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
-      - name: Setup xybp888 Jailed
+      - name: Setup Theos Jailed
         uses: actions/checkout@v4.2.1
         with:
-          repository: qnblackcat/xybp888-jailed
+          repository: kabiroberai/theos-jailed
           ref: master
           path: theos-jailed
           submodules: recursive
 
-      - name: Install xybp888 Jailed
+      - name: Install Theos Jailed
         run: |
           ./theos-jailed/install
         env:
-          THEOS: ${{ github.workspace }}/xybp888
+          THEOS: ${{ github.workspace }}/theos
 
       - name: Prepare YouTube iPA
         id: prepare_youtube
